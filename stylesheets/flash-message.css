@@ -1,0 +1,130 @@
+/* フラッシュメッセージの基本スタイル */
+/* デフォルトのapplication.cssのスタイルを上書き */
+/* 上書き対象: div.flash, div.flash.notice, div.flash.error, div.flash.warning */
+
+/* リセット用スタイル - デフォルトのスタイルを無効化 */
+div#content div.flash {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  min-width: 280px;
+  max-width: 400px;
+  margin: 0;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  display: flex;
+  align-items: center;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  animation: slideIn 0.3s ease forwards, fadeOut 0.3s ease 4.7s forwards;
+  transform: translateX(120%);
+  background: var(--content-background-color);
+  border: none;
+}
+
+div#content div.flash::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* 成功メッセージ */
+div#content div.flash.notice {
+  border-left: 4px solid #4caf50;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+div#content div.flash.notice::before {
+  background-image: url('../images/icons/check_circle_wght200_fill.svg');
+  filter: brightness(0) saturate(100%) invert(39%) sepia(74%) saturate(498%) hue-rotate(91deg) brightness(95%) contrast(92%);
+}
+
+/* エラーメッセージ */
+div#content div.flash.error {
+  border-left: 4px solid #ef5350;
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+div#content div.flash.error::before {
+  background-image: url('../images/icons/error_wght200_fill.svg');
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(3730%) hue-rotate(343deg) brightness(92%) contrast(90%);
+}
+
+/* 警告メッセージ */
+div#content div.flash.warning {
+  border-left: 4px solid #ff9800;
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+div#content div.flash.warning::before {
+  background-image: url('../images/icons/warning_wght200_fill.svg');
+  filter: brightness(0) saturate(100%) invert(48%) sepia(51%) saturate(3868%) hue-rotate(360deg) brightness(103%) contrast(103%);
+}
+
+/* 情報メッセージ */
+div#content div.flash.info {
+  border-left: 4px solid #03a9f4;
+  background-color: #e1f5fe;
+  color: #0277bd;
+}
+
+div#content div.flash.info::before {
+  background-image: url('../images/icons/info_wght200_fill.svg');
+  filter: brightness(0) saturate(100%) invert(37%) sepia(98%) saturate(1267%) hue-rotate(176deg) brightness(96%) contrast(98%);
+}
+
+/* アニメーション定義 */
+@keyframes slideIn {
+  from { transform: translateX(120%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+  div#content div.flash {
+    background: var(--content-background-color);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+  }
+
+  div#content div.flash.notice {
+    background-color: #1b5e20;
+    color: #fff;
+  }
+
+  div#content div.flash.error {
+    background-color: #b71c1c;
+    color: #fff;
+  }
+
+  div#content div.flash.warning {
+    background-color: #e65100;
+    color: #fff;
+  }
+
+  div#content div.flash.info {
+    background-color: #01579b;
+    color: #fff;
+  }
+} 

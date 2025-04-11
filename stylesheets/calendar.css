@@ -1,0 +1,6 @@
+/* カレンダー上のチケット表示スタイル */
+ul.cal .issue {
+    padding: initial;
+    margin-bottom: initial;
+    max-width: initial;
+}

@@ -1,0 +1,57 @@
+/* フォント読み込み - SVGアイコン使用版 */
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* マテリアルアイコンはすべてテーマ内のSVGアイコンを使用するため、外部フォントを読み込まない */
+
+:root {
+    --font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Yu Gothic", "メイリオ", meiryo, sans-serif;
+    --font-family-t: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", consolas, monospace;
+
+    font-weight: 400;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 0 1px rgb(0 0 0 / 5%);
+    /* letter-spacing: 0.025em; */
+    /* text-align: justify; */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-line-break: strict;
+    line-break: strict;
+    text-size-adjust: 100%;
+}
+
+* {
+    text-rendering: optimizelegibility;
+    text-size-adjust: 100%;
+    font-feature-settings: "kern" 1;
+}
+
+p,
+div,
+span {
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-height: 1.75;
+}
+
+.japanese-text {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    hanging-punctuation: allow-end;
+    letter-spacing: normal;
+}
+
+h1 {
+    font-family: Outfit, sans-serif;
+
+    /* font-weight: 600; */
+
+    /* letter-spacing: 0.02em; */
+}

@@ -1,0 +1,128 @@
+/* ダークモードの調整 */
+@media (prefers-color-scheme: dark) {
+    /* 基本背景・テキスト色 */
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    
+    /* コンテンツエリアの背景色 */
+    #content {
+        background-color: var(--content-background-color);
+    }
+    
+    /* フォーム要素 */
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="date"],
+    input[type="number"],
+    textarea,
+    select {
+        background-color: #2a2b2d;
+        color: #e0e0e0;
+        border: 1px solid #3d3d3d;
+    }
+    
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus,
+    input[type="number"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: var(--accent-color);
+        background-color: #2a2b2d;
+    }
+    
+    /* ボタン */
+    input[type="submit"],
+    input[type="button"],
+    button {
+        background-color: #3d3d3d;
+        color: #fff;
+    }
+    
+    input[type="submit"]:hover,
+    input[type="button"]:hover,
+    button:hover {
+        background-color: #4a4a4a;
+    }
+    
+    /* プライマリーボタン - アクセントカラーを維持 */
+    input[type="submit"].primary,
+    button.primary {
+        background: var(--accent-color);
+    }
+    
+    /* テーブル */
+    table.list {
+        border: 1px solid var(--table-border-color);
+    }
+    
+    table.list th {
+        background-color: var(--table-header-background);
+        border-bottom: 1px solid var(--table-border-color);
+    }
+    
+    table.list tr {
+        background-color: var(--table-row-background);
+    }
+    
+    table.list tr:nth-child(even) {
+        background-color: var(--box-background-color);
+    }
+    
+    /* タブ */
+    #content .tabs ul li a {
+        color: #e0e0e0;
+    }
+    
+    #content .tabs ul li a:hover {
+        background-color: #3d3d3d;
+        color: white;
+    }
+    
+    #content .tabs ul li a.selected {
+        border-color: var(--accent-color);
+        color: white;
+        font-weight: 700;
+        background-color: var(--box-background-color);
+    }
+    
+    #content .tabs ul li a.selected:hover {
+        background-color: var(--box-background-color);
+    }
+    
+    /* ツールチップ・情報表示 */
+    div.tooltip:hover span.tip,
+    div#issue-changesets {
+        background-color: var(--box-background-color);
+        border: 1px solid #3d3d3d;
+    }
+    
+    div#issue-changesets>h3 {
+        background-color: #3d3d3d;
+        color: var(--text-color);
+    }
+    
+    /* 設定項目のホバー効果 */
+    [id^="tab-content-"] .tabular.settings>p:hover::before {
+        background-color: rgb(61 61 61 / 50%);
+    }
+    
+    /* タブボタン */
+    div.tabs-buttons {
+        background: var(--box-background-color);
+    }
+    
+    /* プロジェクトカードのダークモード調整 */
+    #projects-index ul.projects li.root:hover {
+        animation: borderGlow var(--hover-animation-duration) infinite alternate;
+    }
+    
+    /* 重複する特殊効果を削除 */
+    #projects-index ul.projects li.root:hover::after {
+        display: none;
+    }
+} 

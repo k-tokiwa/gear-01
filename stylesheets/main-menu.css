@@ -1,0 +1,356 @@
+/* メインメニュー基本レイアウト */
+#main-menu {
+    position: relative;
+    margin: 5px 0 5px 120px;
+    width: calc(100% - 120px);
+    padding: 0;
+}
+
+
+#main-menu ul {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;  /* Firefoxのスクロールバーを非表示 */
+    -ms-overflow-style: none;  /* IEのスクロールバーを非表示 */
+    scroll-behavior: smooth;  /* スムーズスクロール */
+}
+
+#main-menu ul::-webkit-scrollbar {
+    display: none;  /* Chromeのスクロールバーを非表示 */
+}
+
+/* メインメニューリンク */
+#main-menu ul li a {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 13px !important;
+    font-weight: normal;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: none;
+    min-height: 32px;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+/* 新規オブジェクト追加ボタン */
+#main-menu li a.new-object {
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 1;
+}
+
+#main-menu li a.new-object::before {
+    display: none;  /* アイコンを非表示にして+記号のみを表示 */
+}
+
+#main-menu li a.new-object:hover {
+    background-color: rgb(0 0 0 / 4%);
+}
+
+/* サブメニュー */
+#main-menu .menu-children {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 4px 0;
+    z-index: 1000;
+    background-color: var(--content-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+    min-width: 200px;
+}
+
+/* サブメニューを表示する */
+#main-menu li:hover > .menu-children,
+#main-menu li .menu-children.visible {
+    display: block;
+}
+
+/* ホバー時のギャップを埋める */
+#main-menu ul li::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+}
+
+/* サブメニュー項目 */
+#main-menu .menu-children li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#main-menu .menu-children li a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: var(--text-color);
+    font-size: 13px;
+    line-height: 1.4;
+    white-space: nowrap;
+    border-radius: 0;
+    min-height: unset;
+    width: 100%;
+}
+
+#main-menu .menu-children li a:hover {
+    background-color: rgb(0 0 0 / 4%);
+}
+
+/* ホバー状態（選択されていない要素のみ） */
+#main-menu ul li a:not(.selected):hover {
+    background-color: rgb(0 0 0 / 4%);
+    color: var(--text-color);
+}
+
+/* 選択状態 */
+#main-menu ul li a.selected,
+#main-menu ul li a.selected:hover {
+    background-color: transparent;
+    color: var(--selected-text-color);
+    font-weight: normal;
+    position: relative;
+}
+
+#main-menu ul li a.selected::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 12px;
+    width: calc(100% - 24px);
+    height: 2px;
+    background-color: var(--selected-border-color);
+    border-radius: 1px;
+    transform-origin: center;
+    animation: lineAppear 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes lineAppear {
+    from {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+/* アイコン基本スタイル */
+#main-menu ul li a::before {
+    content: '';
+    width: 20px;  /* 24pxから20pxに調整 */
+    height: 20px; /* 24pxから20pxに調整 */
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0) invert(0.2);
+    transition: all 0.2s ease;
+    flex-shrink: 0;  /* アイコンが縮まないように */
+}
+
+/* アイコン個別定義 */
+#main-menu ul li a.overview::before {
+    background-image: url('../images/icons/description_wght200_outline.svg');
+}
+#main-menu ul li a.overview:hover::before,
+#main-menu ul li a.selected.overview::before {
+    background-image: url('../images/icons/description_wght200_fill.svg');
+}
+
+#main-menu ul li a.activity::before {
+    background-image: url('../images/icons/bolt_wght200_outline.svg');
+}
+#main-menu ul li a.activity:hover::before,
+#main-menu ul li a.selected.activity::before {
+    background-image: url('../images/icons/bolt_wght200_fill.svg');
+}
+
+#main-menu ul li a.roadmap::before {
+    background-image: url('../images/icons/map_wght200_outline.svg');
+}
+#main-menu ul li a.roadmap:hover::before,
+#main-menu ul li a.selected.roadmap::before {
+    background-image: url('../images/icons/map_wght200_fill.svg');
+}
+
+#main-menu ul li a.issues::before {
+    background-image: url('../images/icons/inbox_wght200_outline.svg');
+}
+#main-menu ul li a.issues:hover::before,
+#main-menu ul li a.selected.issues::before {
+    background-image: url('../images/icons/inbox_wght200_fill.svg');
+}
+
+#main-menu ul li a.time-entries::before {
+    background-image: url('../images/icons/schedule_wght200_outline.svg');
+}
+#main-menu ul li a.time-entries:hover::before,
+#main-menu ul li a.selected.time-entries::before {
+    background-image: url('../images/icons/schedule_wght200_fill.svg');
+}
+
+#main-menu ul li a.calendar::before {
+    background-image: url('../images/icons/calendar_today_wght200_outline.svg');
+}
+#main-menu ul li a.calendar:hover::before,
+#main-menu ul li a.selected.calendar::before {
+    background-image: url('../images/icons/calendar_today_wght200_fill.svg');
+}
+
+#main-menu ul li a.news::before {
+    background-image: url('../images/icons/article_wght200_outline.svg');
+}
+#main-menu ul li a.news:hover::before,
+#main-menu ul li a.selected.news::before {
+    background-image: url('../images/icons/article_wght200_fill.svg');
+}
+
+#main-menu ul li a.documents::before {
+    background-image: url('../images/icons/inventory_2_wght200_outline.svg');
+}
+#main-menu ul li a.documents:hover::before,
+#main-menu ul li a.selected.documents::before {
+    background-image: url('../images/icons/inventory_2_wght200_fill.svg');
+}
+
+#main-menu ul li a.wiki::before {
+    background-image: url('../images/icons/book_wght200_outline.svg');
+}
+#main-menu ul li a.wiki:hover::before,
+#main-menu ul li a.selected.wiki::before {
+    background-image: url('../images/icons/book_wght200_fill.svg');
+}
+
+#main-menu ul li a.files::before {
+    background-image: url('../images/icons/attach_file_wght200_outline.svg');
+}
+#main-menu ul li a.files:hover::before,
+#main-menu ul li a.selected.files::before {
+    background-image: url('../images/icons/attach_file_wght200_fill.svg');
+}
+
+#main-menu ul li a.contacts::before {
+    background-image: url('../images/icons/contacts_wght200_outline.svg');
+}
+#main-menu ul li a.contacts:hover::before,
+#main-menu ul li a.selected.contacts::before {
+    background-image: url('../images/icons/contacts_wght200_fill.svg');
+}
+
+#main-menu ul li a.gantt::before,
+#main-menu ul li a.easy-gantt::before {
+    background-image: url('../images/icons/equalizer_wght200_outline.svg');
+}
+#main-menu ul li a.gantt:hover::before,
+#main-menu ul li a.easy-gantt:hover::before,
+#main-menu ul li a.selected.gantt::before,
+#main-menu ul li a.selected.easy-gantt::before {
+    background-image: url('../images/icons/equalizer_wght200_fill.svg');
+}
+
+#main-menu ul li a.display-menu-link::before {
+    background-image: url('../images/icons/view_kanban_wght200_outline.svg');
+}
+#main-menu ul li a.display-menu-link:hover::before,
+#main-menu ul li a.selected.display-menu-link::before {
+    background-image: url('../images/icons/view_kanban_wght200_fill.svg');
+}
+
+#main-menu ul li a.work-time::before {
+    background-image: url('../images/icons/timer_wght200_outline.svg');
+}
+#main-menu ul li a.work-time:hover::before,
+#main-menu ul li a.selected.work-time::before {
+    background-image: url('../images/icons/timer_wght200_fill.svg');
+}
+
+#main-menu ul li a.settings::before {
+    background-image: url('../images/icons/settings_wght200_outline.svg');
+}
+#main-menu ul li a.settings:hover::before,
+#main-menu ul li a.selected.settings::before {
+    background-image: url('../images/icons/settings_wght200_fill.svg');
+}
+
+#main-menu ul li a.projects::before {
+    background-image: url('../images/icons/folder_open_wght200_outline.svg');
+    transition: transform 0.2s ease, background-image 0.2s ease;
+}
+#main-menu ul li a.projects:hover::before,
+#main-menu ul li a.selected.projects::before {
+    background-image: url('../images/icons/folder_open_wght200_fill.svg');
+    transform: none;
+}
+
+/* サブメニューのアイコン */
+#main-menu .menu-children li a::before {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ダークモード調整 */
+@media (prefers-color-scheme: dark) {
+    #main-menu li a.new-object:hover {
+        background-color: rgb(255 255 255 / 6%);
+    }
+
+    #main-menu .menu-children li a:hover {
+        background-color: rgb(255 255 255 / 6%);
+    }
+
+    #main-menu ul li a:not(.selected):hover {
+        background-color: rgb(255 255 255 / 6%);
+    }
+    
+    #main-menu ul li a.selected {
+        color: var(--selected-text-color);
+    }
+    
+    #main-menu ul li a.selected:hover {
+        background-color: transparent;
+        color: var(--selected-text-color);
+    }
+
+    #main-menu .menu-children {
+        background-color: var(--content-background-color);
+        border-color: var(--border-color);
+    }
+}
+
+/* ホバー時のスタイル */
+#main-menu ul li a:hover::before {
+    transform: none; /* scale(1.05)から変更 - ホバー時の拡大を無効化 */
+}

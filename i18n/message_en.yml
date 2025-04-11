@@ -1,0 +1,83 @@
+---
+en:
+  label_end_datetime: End Date and Time
+  label_start_datetime: Start Date and Time
+  lalel_check_if_banner_show_only_login_page: Show Only on Login Page
+  label_both: Display on Both Header and Footer
+  label_footer_only: Display Only on Footer
+  label_header_only: Display Only on Header
+  setting_banner_related_link_description: Description of Related Link
+  field_updated_on: Updated On
+  label_use_timer: Use Timer
+  label_banner_message: Banner Message
+  setting_banner_related_link: Related Link
+  button_apply: Apply
+  setting_banner_display_part: Banner Display Part
+  label_message_type: Message Type
+  label_display_authenticated_user_only: Display to Authenticated Users Only
+  button_activate: Activate
+  button_off: Deactivate
+  button_edit: Edit
+  label_yaml_tab: YAML Mode
+  label_normal_tab: Normal Mode
+  notice_successful_update: Update Successful
+  button_cancel: Cancel
+  button_login: Login
+  label_login: Login
+  button_save: Save
+  label_information_plural: Information
+  label_plugins: Plugins
+  label_custom_messages: Custom Messages
+  banner: Banner
+  label_ldap_authentication: LDAP Authentication
+  label_settings: Settings
+  label_preferences: Preferences
+  label_news_plural: News
+  label_enumerations: Enumerations
+  label_custom_field_plural: Custom Fields
+  label_workflow: Workflow
+  label_issue_status_plural: Issue Statuses
+  label_issue_status: Issue Status
+  label_tracker_plural: Trackers
+  field_tracker: Tracker
+  label_role_and_permissions: Roles and Permissions
+  label_group_plural: Groups
+  label_user_plural: Users
+  label_user: User
+  field_user: Users
+  label_search: Search
+  label_logout: Logout
+  label_my_account: My Account
+  label_logged_as: Logged in as:
+  label_home: Home
+  field_homepage: Homepage
+  label_administration: Administration
+  label_my_page: My Page
+  label_news: News
+  label_calendar: Calendar
+  label_gantt: Gantt Chart
+  label_spent_time: Spent Time
+  label_time_entry_plural: Time Entries
+  label_project_plural: Projects
+  label_project: Project
+  label_activity: Activity
+  field_project: Project
+  label_jump_to_a_project: Jump to a Project
+  label_user_new: New User
+  label_user_anonymous: Anonymous User
+  label_profile: Profile
+  label_project_new: New Project
+  label_x_projects:
+    zero: No Projects
+    one: Project: 1
+    other: Projects: %{count}
+  label_project_all: All Projects
+  label_assigned_issues: Assigned Issues
+  label_last_login: Last Login
+  label_registered_on: Registered On
+  label_overall_activity: Overall Activity
+  label_user_activity: "%{value}'s Activity"
+  label_new: New
+  field_last_login_on: Last Login
+  label_reported_issues: Reported Issues
+  label_assigned_to_me_issues: Issues Assigned to Me

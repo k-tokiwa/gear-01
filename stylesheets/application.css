@@ -1,0 +1,22 @@
+/* デフォルトのRedmineスタイルシートをロード */
+@import url("../../application.css");
+
+/* 基本スタイル */
+@import url("./base.css");
+@import url("./fonts.css");
+
+/* レイアウト */
+@import url("./header.css");
+@import url("./main-menu.css");
+@import url("./sidebar.css");
+@import url("./admin-menu.css");
+
+/* コンポーネント */
+@import url("./card.css");
+@import url("./flash-message.css");
+@import url("./content-tabs.css");
+@import url("./mypage.css");
+@import url("./issue.css");
+@import url("./login.css");
+@import url("./calendar.css");
+

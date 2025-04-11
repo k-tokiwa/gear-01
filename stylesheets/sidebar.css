@@ -1,0 +1,427 @@
+/* サイドバー用のスタイル調整 */
+
+#sidebar {
+    padding: 10px;
+    width: 300px !important;
+
+    /* 幅を強制的に設定 */
+    background: var(--background-color);
+    display: none;
+
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 大きめでふわっとした影を追加 */
+    overflow: hidden;
+
+    /* アニメーション中に内容がはみ出さないようにする */
+}
+
+
+/* アニメーション初期状態を設定 */
+
+.animate__animated {
+    --animate-duration: 0.5s;
+
+    /* アニメーションの速度を調整 */
+}
+
+
+/* nosidebar クラスがある場合は、visible-sidebar クラスがあってもサイドバーを非表示にする */
+
+.nosidebar #sidebar {
+    display: none !important;
+}
+
+#sidebar h3 {
+    font-size: 20px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    /* 見出しの下に余白を追加 */
+}
+
+#sidebar ul li a {
+    font-size: 12px;
+    padding: 10px;
+}
+
+#sidebar ul li a.selected {
+    font-weight: 600;
+    color: var(--selected-color);
+    padding-left: 10px;
+}
+
+#sidebar .queries {
+    padding: 0;
+
+    /* 全体の枠を消す */
+}
+
+#sidebar .queries ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar .queries ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* 横並びに配置 */
+    margin-bottom: 10px;
+    padding: 0;
+    background-color: var(--card-background-color);
+    border-radius: 8px;
+
+    /* box-shadow: var(--box-shadow); */
+}
+
+#sidebar .queries ul li a.query {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 12x;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#sidebar .queries ul li a.icon-only {
+    opacity: 0.4;
+    margin-left: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+#sidebar .queries ul li a.selected {
+    background-color: var(--selected-background-color);
+    color: var(--selected-text-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    margin-left: 0;
+    text-decoration: none;
+}
+
+#sidebar .queries ul li a:hover {
+    background-color: var(--hover-color);
+}
+
+#sidebar .queries ul li a.selected:hover {
+    text-decoration: none;
+}
+
+
+/* サイドスイッチパネル */
+
+
+/* トグルボタンを配置する親要素に相対位置を指定 */
+
+#content>#sidebar-switch-panel {
+    position: relative;
+
+    /* #sidebar-switch-panelにだけ相対位置を適用 */
+}
+
+#main.visible-sidebar #sidebar {
+    display: block
+}
+
+@media screen and (width <=899px) {
+    #main.visible-sidebar #sidebar,
+    #main.visible-sidebar #sidebar-switch-panel {
+        display: none
+    }
+}
+
+#sidebar-switch-panel {
+    float: right;
+    height: 25px;
+    left: 16px;
+    margin-left: 20px;
+    padding: 8px;
+    position: absolute;
+    top: 4px;
+    width: 20px;
+    display: flex;
+
+    /* アイコンを中央揃えするためにflexboxを使用 */
+    align-items: center;
+
+    /* 垂直方向にアイコンを中央揃え */
+    justify-content: center;
+
+    /* 水平方向にアイコンを中央揃え */
+    background-color: var(--card-background-color);
+
+    /* border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd; */
+    box-shadow: var(--box-shadow);
+
+    /* 大きめでふわっとした影を追加 */
+    border-radius: 10px 0 0 10px;
+}
+
+#sidebar-switch-button {
+    background-color: var(--card-background-color);
+    display: block;
+    text-decoration: none;
+    padding: unset;
+}
+
+#sidebar-switch-button:hover {
+    background-color: var(--sidebar-switch-hover-background);
+}
+
+#sidebar-switch-button::before {
+    color: var(--text-color);
+    display: inline-block;
+    font-size: 15px;
+
+    /* SVGアイコンを使用するためfont-familyを削除 */
+
+    /* ここで明示的に指定 */
+    font-style: normal;
+    font-variant: normal;
+    margin-right: 3px;
+    text-rendering: auto;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#main:not(.visible-sidebar) #sidebar-switch-button::before {
+    /* SVGアイコンを使用 */
+    background-image: url('../images/icons/chevron_left_wght200_fill.svg');
+}
+
+#main.visible-sidebar #sidebar-switch-button::before {
+    /* SVGアイコンを使用 */
+    background-image: url('../images/icons/chevron_right.svg');
+}
+
+@media print {
+    #main.visible-sidebar #sidebar,
+    #sidebar-switch-panel {
+        display: none
+    }
+}
+
+#sidebar #admin-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+#sidebar #admin-menu a {
+    padding-left: 20px !important;
+}
+
+#sidebar #admin-menu ul li {
+    background-color: var(--card-background-color);
+    margin: 10px 0;
+    padding: 0;
+
+    /* パディングをリセット */
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+
+    /* フレックスボックスに設定 */
+    align-items: center;
+
+    /* 中央揃え */
+    width: 100%;
+
+    /* リスト項目の幅を100%に設定 */
+}
+
+#sidebar #admin-menu ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 12px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px;
+    justify-content: flex-start;
+}
+
+#sidebar #admin-menu ul li a:hover {
+    background-color: var(--hover-color);
+}
+
+
+/* アイコンのスタイル調整 */
+
+#sidebar #admin-menu ul li a::before {
+    /* SVGアイコンを使用するためfont-familyを削除 */
+    font-size: 24px;
+    color: var(--text-color);
+    margin-right: 10px;
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+/* 既存の背景画像を非表示にする */
+
+#sidebar .icon-projects,
+#sidebar .icon-user,
+#sidebar .icon-group,
+#sidebar .icon-roles,
+#sidebar .icon-issue,
+#sidebar .icon-issue-edit,
+#sidebar .icon-workflows,
+#sidebar .icon-custom-fields,
+#sidebar .icon-list,
+#sidebar .icon-settings,
+#sidebar .icon-server-authentication,
+#sidebar .icon-view_customize,
+#sidebar .icon-plugins,
+#sidebar .icon-help {
+    background-image: none !important;
+    padding-left: 0 !important;
+
+    /* 既存のパディングをリセット */
+}
+
+
+/* 選択時のスタイル */
+
+#sidebar #admin-menu ul li a.selected {
+    color: var(--text-color);
+    background-color: var(--selected-background-color);
+}
+
+#sidebar #admin-menu ul li a.selected::before {
+    color: var(--text-color);
+}
+
+
+/* admin-menuのスタイルをsidebarで無効化 */
+
+#sidebar #admin-menu ul li {
+    padding: 0 !important;
+
+    /* パディングを無効に */
+    margin: 10px 0 !important;
+}
+
+
+/* デフォルトのスタイルを上書き */
+
+#sidebar ul li,
+ul.flat li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type: none;
+    margin: 10px;
+    border-radius: var(--box-radius);
+
+    /* box-shadow: var(--box-shadow); */
+    border: var(--border);
+    min-height: 40px;
+    padding-left: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+
+    /* 最低限の高さを設定 */
+}
+
+#sidebar ul li:hover,
+ul.flat li:hover {
+    border-color: var(--hover-border-color);
+    box-shadow: var(--hover-glow-effect);
+    z-index: 1;
+}
+
+
+/* 選択時のスタイルを上書き */
+
+#sidebar a.selected {
+    background-color: unset;
+}
+
+#sidebar a.icon-clear-query::after {
+    content: none;
+
+    /* テキストを完全に非表示に */
+}
+
+#sidebar a.query {
+    flex-grow: 1;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 12px;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 100px;
+
+    /* 最低限の幅を設定 */
+}
+
+#sidebar a.icon-clear-query {
+    background-image: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+
+    /* SVGアイコンを使用するためfont-familyを削除 */
+    width: 24px;
+}
+
+#sidebar a.icon-clear-query::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-image: url('../images/icons/close.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#sidebar a.icon-clear-query {
+    color: transparent;
+
+    /* テキストを透明にして非表示に */
+}
+
+/* ダークモード用の特殊効果 */
+@media (prefers-color-scheme: dark) {
+    #sidebar ul li:hover,
+    ul.flat li:hover {
+        border-color: var(--hover-border-color);
+        box-shadow: var(--hover-glow-effect);
+        animation: borderGlow var(--hover-animation-duration) infinite alternate;
+    }
+    
+    /* 重複する特殊効果を削除 */
+    #sidebar ul li:hover::after,
+    ul.flat li:hover::after {
+        display: none;
+    }
+}

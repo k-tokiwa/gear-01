@@ -1,0 +1,40 @@
+.greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.greeting .current-time {
+    font-size: 1rem;
+}
+
+.greeting .user-name {
+    font-size: 2rem;
+}
+
+/* ブロック追加セレクトボックスのラベルを非表示 */
+/* #block-form label {
+    display: none;
+} */
+
+/* ブロック追加セレクトボックスのスタイリング */
+/* TODO: セレクトボックスへのアイコン追加は要検討
+#block-select {
+    position: relative;
+    padding-left: 36px;
+}
+
+#block-select::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: url('../images/icons/dashboard_customize_wght200_fill.svg') no-repeat center center;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.7;
+}
+*/

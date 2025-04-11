@@ -1,0 +1,531 @@
+/* base.css */
+
+
+
+
+/* 共通のカラー定義 */
+
+:root {
+    /* メインカラー - 高級感のある濃紺 */
+    --primary-color: #1a2238;
+    
+    /* 背景色 - 清潔感のある淡色 */
+    --background-color: #f9f9fa;
+    
+    /* コンテンツエリア背景色 */
+    --content-background-color: #fff;
+    
+    /* アクセントカラー - 上品な金色 */
+    --accent-color: #d4af37;
+    
+    /* アクセントハイライト色 - ホバー用 */
+    --accent-highlight: #c9a32c;
+    
+    /* ホバー色 - 洗練された薄い色 */
+    --hover-color: rgb(0 0 0 / 3.5%);
+    
+    /* テキスト色 - ライトモード用に黒に戻す */
+    --text-color: #282828;
+    
+    /* リンク色 */
+    --link-color: #2c5282;
+    
+    /* サイドメニュー用テキスト色 - 白色 */
+    --menu-text-color: #fff;
+    
+    /* ホバー時のテキスト色 */
+    --hover-text-color: #fff;
+    
+    /* ヘッダータイトル色 */
+    --header-title-color: #333;
+    
+    /* トップメニューテキスト色 */
+    --top-text-color: rgb(255 255 255 / 85%);
+    
+    /* 選択された背景色 - モダンなマテリアルデザイン */
+    --selected-background-color: rgb(26 34 56 / 6%);
+    --selected-border-color: var(--primary-color);
+    --selected-box-shadow: none;
+    
+    /* 選択されたテキスト色 - より鮮明な表現 */
+    --selected-text-color: var(--primary-color);
+    
+    /* 背景色 */
+    --background: #fff;
+    
+    /* ボックスシャドウ */
+    --box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    
+    /* ボーダーレディウス */
+    --top-menu-border-radius: 4px;
+    --box-radius: 4px;
+    
+    /* トップメニューのパディング設定 */
+    --top-menu-padding: 8px 8px 8px 8px;
+    --top-menu-padding-vertical: 16px; /* top + bottom */
+    --top-menu-padding-horizontal: 16px; /* left + right */
+    --top-menu-padding-top: 8px;
+    --top-menu-padding-right: 8px;
+    --top-menu-padding-bottom: 8px;
+    --top-menu-padding-left: 8px;
+
+    /* 既存のRedmine色設定を維持（上書きしないように下に配置） */
+    --background: #eff4f9;
+    --primary-disabled-color: #1f304857;
+    --secondary-color: #37424e;
+    --tertiary-color: #2196F3;
+    --icon-color: #1d1d1d;
+    --tab-icon-color: #fff;
+    --submit-hover-color: #555;
+    --submit-background-color: #555;
+    --card-background-color: #fff;
+    --selected-color: #2196F3;
+    --selected-background-second-color: #2196F3;
+    --selected-ticket-background-color: #e0e0e0;
+    --selected-ticket-text-color: #000;
+    --line-color: #f5f5f5;
+    --table-border-color: #d4d4d4;
+    --table-header-background: #f9f9f9;
+    --table-row-background: #fafafa;
+    --table-row-child-color: #fff;
+    --top-menu-padding: 8px;
+    --top-menu-padding-vertical: calc(var(--top-menu-padding) * 2);
+    --top-menu-padding-horizontal: calc(var(--top-menu-padding) * 2);
+    --progress-closed-color: #b5e8b5;
+    --progress-done-color: #77fc77;
+    --progress-todo-color: #f0f0f0;
+    --mobile-toggle-color: #000;
+    --flash-notice-color: #97f0c2;
+    --flash-error-color: #f78484;
+    --spacing-small: 4px;
+    --spacing-medium: 8px;
+    --spacing-large: 16px;
+    --spacing-extra-large: 24px;
+    --header-shadow: 0 0 8px rgb(0 0 0 / 10%);
+
+    /* box */
+    --box-background-color: var(--background-color);
+    --box-color: var(--content-text-color);
+    --box-radius: 4px;
+
+    /* ライトモードのシャドウ */
+    --box-padding: 1.25rem;
+
+    /* ステータスの色指定 */
+    --issue-status-color: #3F51B5;
+    --issue-status-done-color: #0e0;
+
+    /* チケット関連の色 */
+    --issue-border-color: #f2f2f2;
+    --issue-text-color: #333;
+    --issue-status-open-color: #3F51B5;
+    --issue-status-open-border-color: #3f51b570;
+    --badge-font-size: 16px;
+
+    /* ゴールドグラデーション - アクセントおよびハイライト用 */
+    --gold-gradient: linear-gradient(to bottom, #e6c171, #f7e5a6);
+    --gold-start: #e6c171;
+    --gold-end: #f7e5a6;
+    
+    /* アクセント装飾用の設定 */
+    --accent-line-gradient: var(--gold-gradient);
+    --accent-glow: var(--gold-end);
+    
+    /* ホバー時の発光エフェクト */
+    --hover-glow-effect: 0 0 3px rgb(212 175 55 / 30%);
+    
+    /* ホバーアニメーション関連 */
+    --hover-animation-duration: 1.5s;
+    --hover-glow-min: 0 0 2px rgb(212 175 55 / 30%);
+    --hover-glow-max: 0 0 4px rgb(212 175 55 / 50%);
+
+    /* サイドバースイッチボタンのホバー背景色 */
+    --sidebar-switch-hover-background: transparent;
+
+    /* ボーダー関連 */
+    --border-color: rgb(224 224 224 / 50%);
+    --border-width: 1px;
+    --border-style: solid;
+    --border: var(--border-width) var(--border-style) var(--border-color);
+    
+    /* ホバー時のボーダー関連 */
+    --hover-border-color: var(--accent-color);
+    --hover-box-shadow: none;
+
+    /* チケットステータスの色 - 追加定義 */
+    --status-new-color: #3F51B5;        /* 新規 */
+    --status-in-progress-color: #FF9800; /* 進行中 */
+    --status-feedback-color: #9C27B0;    /* フィードバック */
+    --status-resolved-color: #4CAF50;    /* 解決 */
+    --status-closed-color: #00C853;      /* 終了 */
+    --status-rejected-color: #F44336;    /* 却下 */
+
+    /* チケット優先度の色 */
+    --priority-immediate-color: #D50000; /* 緊急 */
+    --priority-high-color: #FF6D00;      /* 優先 */
+    --priority-normal-color: #2196F3;    /* 通常 */
+    --priority-low-color: #757575;       /* 低め */
+    --priority-lowest-color: #9E9E9E;    /* 低い */
+
+    /* フラッシュメッセージの基本変数 */
+    --flash-display: flex;
+    --flash-align-items: center;
+    --flash-border-width: 1px;
+    --flash-border-style: solid;
+    --flash-background: none;
+    --flash-padding: 0.875rem 1rem;
+    --flash-margin: 0.5rem auto;
+    --flash-border-radius: 0.25rem;
+    --flash-font-size: 0.875rem;
+    --flash-line-height: 1.5;
+
+    /* フラッシュメッセージのアイコン */
+    --flash-icon-size: 1.25rem;
+    --flash-icon-margin: 0.5rem;
+    --flash-icon-display: inline-block;
+    --flash-icon-position: center;
+    --flash-icon-repeat: no-repeat;
+    --flash-icon-fit: contain;
+
+    /* ステータスメッセージの基本色 - ライトモード */
+    --success-bg: #d4edda;
+    --success-border: #c3e6cb;
+    --success-text: #155724;
+
+    --danger-bg: #f8d7da;
+    --danger-border: #f5c6cb;
+    --danger-text: #721c24;
+
+    --warning-bg: #fff3cd;
+    --warning-border: #ffeeba;
+    --warning-text: #856404;
+
+    --info-bg: #cce5ff;
+    --info-border: #b8daff;
+    --info-text: #004085;
+
+    /* ステータスメッセージの基本色 - ダークモード */
+    --success-bg-dark: #1e4620;
+    --success-border-dark: #2c5a30;
+    --success-text-dark: #d4edda;
+
+    --danger-bg-dark: #4c1c1f;
+    --danger-border-dark: #5c2428;
+    --danger-text-dark: #f8d7da;
+
+    --warning-bg-dark: #533f04;
+    --warning-border-dark: #644c05;
+    --warning-text-dark: #fff3cd;
+
+    --info-bg-dark: #1c3344;
+    --info-border-dark: #234255;
+    --info-text-dark: #cce5ff;
+
+    /* タブのスタイル変数 */
+    --tab-height: 43px;
+    --tab-border-radius: 0.375rem;
+    --tab-padding-x: 0.75rem;
+    --tab-padding-y: 0.5rem;
+    --tab-font-size: 0.875rem;
+    --tab-line-height: 1.25rem;
+    --tab-font-weight: 400;
+    --tab-font-weight-selected: 700;
+    
+    /* タブの色 */
+    --tab-text-color: rgb(0 46 64);
+    --tab-text-opacity: 1;
+    --tab-hover-bg: rgb(240 242 243);
+    --tab-hover-bg-opacity: 1;
+    --tab-selected-border-color: rgb(8 90 121);
+    --tab-selected-border-opacity: 1;
+    --tab-selected-bg: white;
+    --tab-border-width: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        /* ダークテーマのメインカラー - 深みのあるダークブルー */
+        --primary-color: #101729;
+        
+        /* 背景色 - 高級感のあるダークグレー（少し明るく） */
+        --background-color: #1e1e1e;
+        
+        /* コンテンツエリア背景色 - ダークモード（少し明るく） */
+        --content-background-color: #242424;
+        
+        /* ヘッダー背景色 */
+        --head-background-color: #222;
+        
+        /* テキスト色 - 読みやすい明るめの色 */
+        --text-color: #e6e6e6;
+        
+        /* ホバー色 - 適度なコントラスト */
+        --hover-color: #333;
+        
+        /* サブミットボタンホバー色 */
+        --submit-hover-color: #555;
+        
+        /* カード背景色 - より洗練された色に変更 */
+        --card-background-color: #2d2d30;
+        
+        /* 選択された背景色 - ダークモードでより洗練された表現 */
+        --selected-background-color: rgb(212 175 55 / 12%);
+        --selected-border-color: var(--accent-color);
+        --selected-box-shadow: none;
+        
+        /* 選択されたテキスト色 - ダークモードでより視認性の高い色に変更 */
+        --selected-text-color: var(--accent-color);
+        
+        /* 選択されたチケットの背景色と文字色 */
+        --selected-ticket-background-color: #333;
+        --selected-ticket-text-color: #fff;
+        
+        /* 線の色 - 区切り線用（薄く） */
+        --line-color: #333;
+        
+        /* テーブル関連の色 */
+        --table-border-color: #3a3a3a;
+        --table-header-background: #2d2d2d;
+        --table-row-background: #252525;
+        --table-row-child-color: #2a2a2a;
+
+        /* モバイルトグル色 */
+        --mobile-toggle-color: #fff;
+        
+        /* フラッシュメッセージの色 */
+        --flash-notice-color: #2e7d32;
+        --flash-error-color: #c62828;
+        
+        /* ボックス関連 */
+        --box-background-color: #2d2d30;
+        --box-color: #e6e6e6;
+        --box-shadow: 0 4px 15px rgb(0 0 0 / 30%);
+        
+        /* アクセントカラー - 金色はそのまま維持（高級感） */
+
+        /* --accent-color と --accent-highlight はライトモードと同じ値を使用 */
+        
+        /* 背景 */
+        --background: #1e1e1e;
+        
+        /* ヘッダー関連 */
+        --header-title-color: #e0e0e0;
+        
+        /* リンク色 - 読みやすい青系 */
+        --link-color: #90caf9;
+
+        /* サイドバースイッチボタンのホバー背景色 - ダークモード */
+        --sidebar-switch-hover-background: transparent;
+
+        /* ボーダー関連 - ダークモード */
+        --border-color: rgb(61 61 61 / 40%);
+        --border-width: 1px;
+        --border-style: solid;
+        --border: var(--border-width) var(--border-style) var(--border-color);
+        
+        /* ホバー時のボーダー関連 - ダークモード */
+        --hover-border-color: var(--accent-color);
+        --hover-box-shadow: none;
+        
+        /* ホバー時の発光エフェクト - ダークモード */
+        --hover-glow-effect: 0 0 4px rgb(212 175 55 / 50%);
+        
+        /* ホバーアニメーション関連 - ダークモード */
+        --hover-glow-min: 0 0 3px rgb(212 175 55 / 40%);
+        --hover-glow-max: 0 0 5px rgb(212 175 55 / 60%);
+    }
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--content-text-color);
+    background-color: var(--background-color);
+    line-height: 1.5;
+}
+
+/* コンテンツエリアの背景色 */
+#content {
+    background-color: var(--content-background-color);
+}
+
+/* 見出しのパディングは2px（偶数ピクセル）に設定
+   - 要素の中心軸を整数ピクセルに合わせることで、
+   - 後続要素（.greetingなど）の中央揃えが正確に機能するようにする
+*/
+
+/* コンテンツエリアの見出しスタイル */
+#content h1,
+#content h2,
+#content h3,
+#content h4 {
+    color: var(--text-color);
+    font-weight: bold;
+    margin: 0 0 1rem;
+}
+
+#content h1 {
+    /* font-size: 1.75rem; */
+    line-height: 2rem;
+}
+
+#content h2 {
+    /* font-size: 1.5rem; */
+    line-height: 1.75rem;
+    padding: 2px;
+}
+
+#content h3 {
+    /* font-size: 1.25rem; */
+    line-height: 1.5rem;
+}
+
+#content h4 {
+    /* font-size: 1.125rem; */
+    line-height: 1.375rem;
+}
+
+/* リンクスタイル - コンテンツ用 */
+
+a,
+a:link,
+a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+
+
+/* インプット、ボタン、選択スタイルの高さ、余白を調整 */
+
+input,
+select,
+button {
+    height: 28px;
+    line-height: normal;
+    margin-right: 8px;
+    border-radius: var(--box-radius);
+    border: 1px solid #d0d0d0;
+    padding: 0 12px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+    background-color: #fff;
+    color: var(--text-color);
+    border: 1px solid #d0d0d0;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+textarea {
+    padding: 12px;
+    height: auto;
+    min-height: 80px;
+}
+
+/* ボタンスタイル */
+
+input[type="submit"],
+input[type="button"],
+button {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--box-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    font-weight: 500;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+    background-color: var(--submit-hover-color);
+}
+
+/* プライマリーボタン */
+input[type="submit"].primary,
+button.primary {
+    background: var(--accent-color);
+    color: white;
+}
+
+input[type="submit"].primary:hover,
+button.primary:hover {
+    background: var(--accent-highlight);
+}
+
+/* セカンダリーボタン */
+input[type="button"].secondary,
+button.secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
+
+input[type="button"].secondary:hover,
+button.secondary:hover {
+    background-color: rgb(0 0 0 / 5%);
+}
+
+/* マイページカスタマイズメニューのフォントサイズを1remに設定 
+プロジェクトのフィルターのフォントサイズを1remに設定 */
+
+.contextual input,
+.contextual select,
+select#add_filter_select {font-size: 1rem;}
+
+/* データなしのスタイル設定 */
+.nodata,
+.warning {
+    background-color: var(--box-background-color);
+    border-radius: var(--box-radius);
+    color: var(--box-color);
+    border: var(--border);
+    display: block;
+    padding: var(--box-padding);
+    margin: 16px 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+
+/* フッタースタイル */
+
+#footer {
+    clear: both;
+    border: none;
+    font-size: 0.9em;
+    color: var(--text-color);
+    padding: 5px;
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+/* 共通アニメーション定義 */
+@keyframes borderGlow {
+    0% {
+        box-shadow: var(--hover-glow-min);
+    }
+
+    100% {
+        box-shadow: var(--hover-glow-max);
+    }
+}

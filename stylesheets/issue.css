@@ -1,0 +1,271 @@
+/* チケットのスタイル設定 */
+
+div.issue {
+    background-color: var(--box-background-color);
+    color: var(--issue-text-color);
+    border: var(--border);
+    border-radius: var(--box-radius);
+    padding: var(--box-padding);
+    margin-bottom: var(--spacing-large);
+    transition: border-color 0.3s ease;
+    position: relative;
+}
+
+/* チケットのホバー効果 */
+div.issue:hover {
+    border-color: var(--hover-border-color);
+}
+
+/* 優先度によるスタイル - Redmineのクラス名を使用 */
+div.issue.priority-highest,  /* 緊急 */
+div.issue.priority-high {    /* 優先 */
+    position: relative;
+    overflow: hidden;
+    border-left: 1px solid var(--border-color); /* ゴールドアクセント用にリセット */
+}
+
+div.issue.priority-highest::before,
+div.issue.priority-high::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gold-gradient);
+    box-shadow: 0 0 10px rgb(212 175 55 / 70%);
+}
+
+div.issue.priority-highest:hover::before,
+div.issue.priority-high:hover::before {
+    box-shadow: 0 0 15px rgb(212 175 55 / 90%);
+    width: 5px; /* ホバー時に少し太くなる */
+}
+
+/* 標準優先度のチケット */
+div.issue.priority-default { /* 通常 */
+    border-left: 3px solid var(--priority-normal-color);
+}
+
+/* 低優先度のチケット */
+div.issue.priority-low, /* 低め */
+div.issue.priority-lowest { /* 低い */
+    border-left: 3px solid var(--priority-low-color);
+}
+
+/* ステータスによるスタイル - Redmineのクラス名を使用 */
+div.issue.status-1 { /* 新規 */
+    border-left: 3px solid var(--status-new-color);
+}
+
+div.issue.status-2 { /* 進行中 */
+    border-left: 3px solid var(--status-in-progress-color);
+}
+
+div.issue.status-3 { /* 解決 */
+    border-left: 3px solid var(--status-resolved-color);
+}
+
+div.issue.status-4 { /* フィードバック */
+    border-left: 3px solid var(--status-feedback-color);
+}
+
+div.issue.status-5 { /* 終了 */
+    border-left: 3px solid var(--status-closed-color);
+}
+
+div.issue.status-6 { /* 却下 */
+    border-left: 3px solid var(--status-rejected-color);
+}
+
+/* 優先度の方がステータスより優先される（CSSの詳細度による） */
+div.issue.priority-highest,
+div.issue.priority-high {
+    border-left: 1px solid var(--border-color); /* ゴールドアクセント用にリセット */
+}
+
+/* 完了したチケットのスタイル */
+div.issue.closed {
+    opacity: 0.9;
+}
+
+div.issue.closed::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 30px 30px 0;
+    border-color: transparent var(--status-closed-color) transparent transparent;
+}
+
+/* チケットタイトルとステータスを整列 */
+h2.inline-flex {
+    display: inline-flex;
+    align-items: baseline;
+    margin-top: 0;
+}
+
+/* チケットステータスバッジのスタイル定義
+ * - ステータスを視覚的に分かりやすく表示
+ * - 軽量で洗練された見た目を実現
+ * - アクセシビリティを考慮したコントラスト比
+ */
+
+/* 基本バッジスタイル */
+.badge {
+    font-size: 0.8125rem; /* 13px相当 */
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* 未完了ステータスバッジ */
+.badge-status-open {
+    color: var(--issue-status-open-color);
+    background-color: rgb(63 81 181 / 10%);
+    border: 1px solid var(--issue-status-open-border-color);
+    border-radius: 16px;
+    padding: 4px 12px;
+    margin-left: 8px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+}
+
+/* ロック済みステータスバッジ */
+.badge-status-locked {
+    color: var(--issue-status-locked-color);
+    background-color: rgb(158 158 158 / 10%);
+    border: 1px solid var(--issue-status-locked-border-color);
+    border-radius: 16px;
+    padding: 4px 12px;
+    margin-left: 8px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+}
+
+/* 完了ステータスバッジ */
+.badge-status-closed {
+    color: var(--issue-status-closed-color);
+    background-color: rgb(76 175 80 / 10%);
+    border: 1px solid var(--issue-status-closed-border-color);
+    border-radius: 16px;
+    padding: 4px 12px;
+    margin-left: 8px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+}
+
+/* チケット数バッジ */
+.badge-issues-count {
+    color: var(--issue-count-color);
+    background-color: rgb(33 150 243 / 10%);
+    border: 1px solid var(--issue-count-border-color);
+    border-radius: 16px;
+    padding: 2px 8px;
+    margin-left: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+}
+
+/* チケットの内容を整える */
+div.issue .attributes {
+    margin-top: var(--spacing-medium);
+}
+
+div.issue .description {
+    margin-top: var(--spacing-large);
+    padding-top: var(--spacing-medium);
+    border-top: 1px solid var(--border-color);
+}
+
+/* チケットに担当者アイコンの表示 */
+div.issue span.assigned-to {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+div.issue span.assigned-to::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    background-image: url('../images/icons/person_wght200_outline.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    opacity: 0.7;
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    div.issue {
+        background-color: var(--box-background-color);
+        border: var(--border);
+        color: var(--text-color);
+    }
+    
+    div.issue:hover {
+        background-color: var(--box-background-color); 
+        border-color: var(--hover-border-color);
+        box-shadow: var(--hover-glow-effect);
+        animation: borderGlow var(--hover-animation-duration) infinite alternate;
+    }
+    
+    div.issue.priority-highest::before,
+    div.issue.priority-high::before {
+        box-shadow: 0 0 8px rgb(212 175 55 / 60%);
+    }
+    
+    div.issue.priority-highest:hover::before,
+    div.issue.priority-high:hover::before {
+        box-shadow: 0 0 10px rgb(212 175 55 / 80%);
+    }
+    
+    div.issue .description {
+        border-top: 1px solid rgb(255 255 255 / 10%);
+    }
+    
+    /* 担当者アイコンをダークモードで調整 */
+    div.issue span.assigned-to::before {
+        filter: brightness(0) invert(0.8);
+    }
+    
+    .badge-status-open {
+        color: var(--tertiary-color);
+        border-color: rgb(33 150 243 / 50%);
+    }
+
+    .badge-status-locked {
+        color: var(--text-color);
+        border-color: rgb(158 158 158 / 50%);
+        background-color: rgb(158 158 158 / 15%);
+    }
+
+    .badge-status-closed {
+        color: rgb(76 175 80);
+        border-color: rgb(76 175 80 / 50%);
+        background-color: rgb(76 175 80 / 15%);
+    }
+
+    .badge-issues-count {
+        color: var(--tertiary-color);
+        border-color: rgb(33 150 243 / 50%);
+        background-color: rgb(33 150 243 / 15%);
+    }
+
+    /* 完了したチケットのスタイル - ダークモード */
+    div.issue.closed {
+        opacity: 0.7;
+    }
+}

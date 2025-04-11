@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <!-- 最新のエンタープライズブラック -->
+  <g fill="#1C1C1C">
+    <!-- 製造業の確実性を表現する基本形状 -->
+    <path d="M6 6 h12 v12 h-12 Z"/>
+  </g>
+  
+  <!-- デジタル革新を表現する要素 -->
+  <g stroke="#0052CC" stroke-width="1.5">
+    <!-- 水平の革新ライン -->
+    <path d="M6 12 h12"/>
+    <!-- 垂直の成長ライン -->
+    <path d="M12 6 v12"/>
+  </g>
+</svg>
+
+<!-- Version 2: The Flow -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#2C2C2C">
+    <!-- Dynamic flow representation -->
+    <path d="M4 8 h16 l-4 8 h-8 l-4 -8 Z"/>
+    <!-- Innovation indicator -->
+    <circle cx="12" cy="12" r="2" fill="#0066FF"/>
+  </g>
+</svg>
+
+<!-- Version 3: The Enterprise -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#2C2C2C">
+    <!-- Solid foundation -->
+    <path d="M4 8 h16 v8 h-16 Z"/>
+    <!-- Growth indicator -->
+    <path d="M8 8 l4 -4 l4 4" stroke="#0066FF" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>
+
+<!-- Version 4: The Innovation -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#2C2C2C">
+    <!-- Modern manufacturing symbol -->
+    <path d="M7 7 l5 5 l5 -5 v10 l-5 -5 l-5 5 Z"/>
+  </g>
+</svg>
+
+<!-- Version 5: The Leadership -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#2C2C2C">
+    <!-- Authority symbol -->
+    <path d="M12 4 l8 16 h-16 Z"/>
+    <!-- Progress indicator -->
+    <path d="M12 8 v8" stroke="#0066FF" stroke-width="1.5"/>
+  </g>
+</svg> 

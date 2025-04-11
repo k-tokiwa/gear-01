@@ -1,0 +1,163 @@
+.box {
+    background-color: var(--box-background-color);
+    border-radius: var(--box-radius);
+
+    /* box-shadow: var(--box-shadow); */
+    color: var(--box-color);
+    border: var(--border);
+    display: block;
+    padding: var(--box-padding);
+    margin: 16px 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.box:hover {
+    /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); */
+    border-color: var(--hover-border-color);
+    box-shadow: var(--hover-glow-effect);
+    z-index: 1;
+}
+
+/* カードのバリエーション */
+.box.flat {
+    /* box-shadow: none; */
+    border: var(--border);
+}
+
+.box.flat:hover {
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px); */
+    border-color: var(--hover-border-color);
+    box-shadow: var(--hover-glow-effect);
+}
+
+.box.accent {
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+}
+
+/* アクセントカードの新しいバリエーション - ゴールドグラデーションボーダー */
+.box.gold-accent {
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.box.gold-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gold-gradient);
+    box-shadow: 0 0 10px rgb(212 175 55 / 70%);
+}
+
+/* ホバー時の特殊効果を追加 */
+.box.gold-accent:hover::before {
+    box-shadow: 0 0 15px rgb(212 175 55 / 90%);
+    width: 5px; /* ホバー時に少し太くなる */
+}
+
+/* カードヘッダー */
+.box-header {
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* カードコンテンツ */
+.box-content {
+    padding: 8px 0;
+}
+
+/* カードフッター */
+.box-footer {
+    border-top: 1px solid rgb(0 0 0 / 10%);
+    padding-top: 12px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+/* プロジェクトカード型 */
+#projects-index ul.projects li.root {
+    position: relative;
+    margin-bottom: var(--spacing-large);
+    border-radius: var(--box-radius);
+    border: var(--border);
+    padding: var(--box-padding);
+    background-color: var(--card-background-color);
+}
+
+#projects-index ul.projects li.root:hover {
+    border-color: var(--hover-border-color);
+    box-shadow: var(--hover-glow-effect);
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    .box {
+        background-color: var(--box-background-color);
+        border: var(--border);
+        color: var(--text-color);
+    }
+    
+    .box:hover {
+        background-color: var(--box-background-color); /* ホバー時も背景色は変わらない */
+        border-color: var(--hover-border-color);
+        box-shadow: var(--hover-glow-effect);
+        animation: borderGlow var(--hover-animation-duration) infinite alternate;
+    }
+    
+    .box.flat {
+        border: var(--border);
+    }
+    
+    .box.flat:hover {
+        background-color: var(--box-background-color); /* ホバー時も背景色は変わらない */
+        border-color: var(--hover-border-color);
+        box-shadow: var(--hover-glow-effect);
+        animation: borderGlow var(--hover-animation-duration) infinite alternate;
+    }
+    
+    .box-header {
+        border-bottom: 1px solid rgb(255 255 255 / 10%);
+    }
+    
+    .box-footer {
+        border-top: 1px solid rgb(255 255 255 / 10%);
+    }
+    
+    /* ダークモードでのゴールドアクセントカード強化 */
+    .box.gold-accent::before {
+        box-shadow: 0 0 8px rgb(212 175 55 / 60%);
+    }
+    
+    .box.gold-accent:hover::before {
+        box-shadow: 0 0 10px rgb(212 175 55 / 80%);
+    }
+    
+    /* プロジェクトカードのダークモード */
+    #projects-index ul.projects li.root {
+        background-color: var(--card-background-color);
+    }
+    
+    #projects-index ul.projects li.root:hover {
+        animation: borderGlow var(--hover-animation-duration) infinite alternate;
+    }
+    
+    /* 二重枠の問題を解決するため特殊効果を削除 */
+    .box:hover::after {
+        display: none;
+    }
+}

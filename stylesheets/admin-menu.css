@@ -1,0 +1,115 @@
+/* UI全体がmaterialsアイコンから、マテリアルシンボルに変更させる TODO */
+
+
+/* Material Iconsは fonts.css に集約しました */
+
+/* 管理画面のレイアウト変更 */
+
+#admin-index {
+    padding: 20px;
+}
+
+/* メニューのメインコンテナ */
+#admin-index #admin-menu {
+    width: 100%;
+}
+
+/* メニューリスト */
+#admin-index #admin-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 20px;
+    margin: 0;
+    list-style: none;
+}
+
+/* メニュー項目 */
+#admin-index #admin-menu ul li {
+    flex: 0 0 calc(33.33% - 14px);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+}
+
+/* メニューリンク */
+#admin-index #admin-menu ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: var(--box-background-color);
+    border: var(--border);
+    border-radius: var(--box-radius);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* ホバーエフェクト */
+#admin-index #admin-menu ul li:hover {
+    background-color: var(--box-background-color);
+    border-color: var(--hover-border-color);
+    box-shadow: var(--hover-glow-effect);
+    z-index: 1;
+}
+
+/* ダークモード用の特殊効果 */
+@media (prefers-color-scheme: dark) {
+    #admin-index #admin-menu ul li:hover {
+        background-color: var(--box-background-color);
+        border-color: var(--hover-border-color);
+        box-shadow: var(--hover-glow-effect);
+        animation: borderGlow var(--hover-animation-duration) infinite alternate;
+    }
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    #admin-index #admin-menu ul li {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #admin-index #admin-menu ul li {
+        flex: 0 0 100%;
+    }
+}
+
+/* 既存の背景画像を非表示にする */
+
+.icon-projects,
+.icon-user,
+.icon-group,
+.icon-roles,
+.icon-issue,
+.icon-issue-edit,
+.icon-workflows,
+.icon-custom-fields,
+.icon-list,
+.icon-settings,
+.icon-edit,
+.icon-server-authentication,
+.icon-view_customize,
+.icon-plugins,
+.icon-help,
+.icon-bookmark-off,
+.icon-bookmark {
+    background-image: none !important;
+
+    /* padding-left: 0 !important; */
+}
+
+#projects-index a.icon-user::before {
+    content: none;
+}
+
+/* アイコン定義はすべてSVGで実装されています */
+
+#admin-index #admin-menu {
+    max-width: none !important;
+
+    /* または希望する他の値 */
+}
