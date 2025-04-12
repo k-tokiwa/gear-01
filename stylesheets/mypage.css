@@ -10,6 +10,7 @@
 
 .greeting .user-name {
     font-size: 2rem;
+    padding: 1rem;
 }
 
 /* ブロック追加セレクトボックスのラベルを非表示 */
