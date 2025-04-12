@@ -507,36 +507,16 @@ body.logged-out #account ul li a:hover {
 /* --------- Project Jump form ----------- */
 
 #project-jump .drdn-trigger {
-    /* font-size: 12pt; */
+    display: flex;
+    align-items: center;    /* 上下中央揃え */
+    justify-content: center; /* 左右中央揃え（既に左右中央揃えが適用されている場合は不要） */
     height: 32px;
+    text-align: -webkit-center; /* 既存の左右中央揃え */
 }
 
 #project-jump .drdn-items>a:hover {
     background-color: var(--background);
     color: #000 !important;
-
-    /* border: none; */
-}
-
-.drdn-content {
-    /* margin-top: 1%;
-    border: 2px solid #f2f2f2;
-    border-radius: 6px; */
-}
-
-.drdn-content .autocomplete:focus {
-    /* border-color: #f2f2f2; */
-}
-
-.drdn-content strong {
-    /* background-color: #f2f2f2; */
-
-    /* border: none; */
-}
-
-div+.drdn-items {
-    /* border-top: 1px solid #f2f2f2;
-    font-size: 16px; */
 }
 
 #sidebar-switch-panel {

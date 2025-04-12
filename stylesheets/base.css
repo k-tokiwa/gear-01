@@ -405,7 +405,7 @@ button {
     margin-right: 8px;
     border-radius: var(--box-radius);
     border: 1px solid #d0d0d0;
-    padding: 0 12px;
+    /* padding: 0 12px; */
     transition: all 0.3s ease;
 }
 

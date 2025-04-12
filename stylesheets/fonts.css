@@ -38,7 +38,7 @@ div,
 span {
     word-break: normal;
     overflow-wrap: break-word;
-    line-height: 1.75;
+    line-height: 1;
 }
 
 .japanese-text {
