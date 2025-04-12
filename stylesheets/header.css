@@ -245,7 +245,7 @@ body.logged-out #account ul li a:hover {
 }
 
 #top-menu .active>a {
-    background-color: rgb(255 255 255 / 15%);
+    /* background-color: rgb(255 255 255 / 15%); */
     color: var(--menu-text-color);
     position: relative;
 }
@@ -263,7 +263,60 @@ body.logged-out #account ul li a:hover {
     box-shadow: 0 0 4px var(--gold-start);
 }
 
+/* アクティブなメニュー項目のアイコン共通スタイル */
+#top-menu .active>a::before {
+    /* Slackスタイルの背景を追加 */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px;
+    box-sizing: content-box;
+    background-size: 20px;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+}
 
+/* アクティブなメニュー項目のアイコンをfill版に変更 */
+#top-menu .active>a.home::before,
+#top-menu .active>a[href="/"]::before {
+    background-image: url('../images/icons/home_wght200_fill.svg');
+}
+
+#top-menu .active>a.my-page::before,
+#top-menu .active>a[href="/my/page"]::before {
+    background-image: url('../images/icons/dashboard_wght200_fill.svg');
+}
+
+#top-menu .active>a.projects::before,
+#top-menu .active>a[href="/projects"]::before {
+    background-image: url('../images/icons/folder_open_wght200_fill.svg');
+}
+
+#top-menu .active>a.administration::before,
+#top-menu .active>a[href="/settings"]::before,
+#top-menu .active>a[href="/admin"]::before,
+#top-menu .active>a[href^="/admin/"]::before,
+#top-menu .active>a[href*="admin"]::before {
+    background-image: url('../images/icons/admin_panel_settings_wght200_fill.svg');
+}
+
+#top-menu .active>a.help::before,
+#top-menu .active>a[href="/help"]::before {
+    background-image: url('../images/icons/help_wght200_fill.svg');
+}
+
+#top-menu .active>a[href="/work_time"]::before,
+#top-menu .active>a[href*="/time_entries"]::before {
+    background-image: url('../images/icons/schedule_wght200_fill.svg');
+}
+
+#top-menu .active>a.my-account::before,
+#top-menu .active>a[href="/my/account"]::before {
+    background-image: url('../images/icons/person_wght200_fill.svg');
+}
+
+#top-menu .active>a.logout::before,
+#top-menu .active>a[href="/logout"]::before {
+    background-image: url('../images/icons/logout_wght200_fill.svg');
+}
 
 /* アカウント関連のテキスト非表示 */
 #top-menu .my-account,
@@ -517,6 +570,29 @@ body.logged-out #account ul li a:hover {
 #project-jump .drdn-items>a:hover {
     background-color: var(--background);
     color: #000 !important;
+
+    /* border: none; */
+}
+
+.drdn-content {
+    /* margin-top: 1%;
+    border: 2px solid #f2f2f2;
+    border-radius: 6px; */
+}
+
+.drdn-content .autocomplete:focus {
+    /* border-color: #f2f2f2; */
+}
+
+.drdn-content strong {
+    /* background-color: #f2f2f2; */
+
+    /* border: none; */
+}
+
+div+.drdn-items {
+    /* border-top: 1px solid #f2f2f2;
+    font-size: 16px; */
 }
 
 #sidebar-switch-panel {
