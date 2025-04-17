@@ -82,7 +82,7 @@ body.logged-out #account ul li a:hover {
 #header {
     color: var(--text-color);
     padding: 0 20px;
-    background: var(--background-color) !important;
+    background: var(--background-color);
 }
 
 #header h1 {
@@ -489,7 +489,7 @@ body.logged-out #account ul li a:hover {
 
 /* 最小限の余白でも優雅さを保つための微調整 */
 #top-menu ul > li > a:hover {
-    transform: translateY(-1px); /* ホバー時の浮き上がり効果を控えめに */
+    /* transform: translateY(-1px); ホバー時の浮き上がり効果を控えめに */
 }
 
 /* アバター設定 - 統合 */
@@ -641,7 +641,7 @@ div+.drdn-items {
 
 
 /* サイドメニュー位置調整 */
-
+/* メインメニューの設定のため移動予定 */
 h1,
 #main,
 #main-menu {
@@ -651,7 +651,7 @@ h1,
 
 /* スマホ表示時のマージン調整 */
 
-@media screen and (width <= 768px) {
+@media screen and (width <= 899px) {
     h1,
     #main,
     #main-menu {
@@ -881,5 +881,25 @@ h1,
     #quick-search #q:focus {
         border-color: var(--accent-color);
         background-color: #333;
+    }
+}
+
+/* スマホ表示時のヘッダー背景色調整 - シンプルに色だけ変更 */
+@media screen and (max-width: 899px) {
+    #header {
+        background-color: var(--primary-color) !important;
+    }
+}
+
+/* スマホ表示時のフライアウトメニュー背景色調整 */
+@media screen and (max-width: 899px) {
+    .flyout-menu {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+        box-shadow: -3px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .flyout-menu h3 {
+        background-color: #121212 !important;
     }
 }
